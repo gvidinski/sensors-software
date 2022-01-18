@@ -1,3 +1,22 @@
+NRZ-2021-134-B3
+* Upgrade to Arduino Core 3.0.1
+* Libraries updated
+* changes for compatibility to latest ArduinoJSON
+* more BearSSL ciphers enabled (ECDSA certs, AES-GCM-SHA + CHACHA20 ciphers)
+* SCD autocalibration status now shown on status page
+
+NRZ-2020-134-B3
+* support for SCD30 added
+
+NRZ-2020-134-B2
+* dew point added
+* pressure at sea level added
+* additional languages (via DeepL)
+* static IP config
+
+NRZ-2020-134-B1
+* next beta version
+
 NRZ-2020-133
 online since 2020-11-29
 * same as NRZ-2020-132-B3
