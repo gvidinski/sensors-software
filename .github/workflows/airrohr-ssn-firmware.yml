@@ -21,12 +21,16 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    # map a step output to a job output
+    outputs:
+      version_num: ${{steps.version.outputs.VERSION}}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -51,6 +55,7 @@ jobs:
           python3 -m pip install --upgrade pip
           pip3 install platformio
           platformio --version
+          
       - name: Run builds
         run: |
           cd airrohr-firmware && pwd && ls -l && platformio run && ls -l builds/
