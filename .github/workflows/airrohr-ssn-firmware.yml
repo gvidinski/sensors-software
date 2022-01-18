@@ -67,6 +67,6 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "../airrohr-firmware/builds/latest-${{ steps.version.outputs.VERSION }}.zip"
+          artifacts: "../airrohr-firmware/builds/"
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: v${{ steps.version.outputs.VERSION }}
+          tag: vSSN-NRZ-2021-134-B5 
