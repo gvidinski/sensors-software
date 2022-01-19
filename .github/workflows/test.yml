@@ -47,7 +47,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: git.run_number: ${{ github.run_number }}
+        run: echo github.run_number ${{ github.run_number }}
 
       # Runs a set of commands using the runners shell
       #- name: Install dependencies
