@@ -23,8 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     
     # map a step output to a job output
-    outputs:
-      version_num: ${{steps.version.outputs.VERSION}}
+    # outputs:
+    #   version_num: ${{steps.version.outputs.VERSION}}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -37,36 +37,37 @@ jobs:
         with:
           python-version: '3.7'
           
-      #- name: Load dependencies from cache
-      #  uses: actions/cache@v2
-      #  with:
-      #    path: ~/.cache/pip
-      #    key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-      #    restore-keys: |
-      #      ${{ runner.os }}-pip-
+      - name: Load dependencies from cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo github.run_number ${{ github.run_number }}
 
       # Runs a set of commands using the runners shell
-      #- name: Install dependencies
-      #  run: |
-      #    python3 -m pip install --upgrade pip
-      #    pip3 install platformio
-      #    platformio --version
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install platformio
+          platformio --version
           
-      #- name: Run builds
-      #  run: |
-      #    cd airrohr-firmware && pwd && ls -l && platformio run && ls -l builds/
-      #    cd ../airrohr-update-loader && pwd && ls -l && platformio run && ls -l builds/
-      - name: Run list
-        run: cd airrohr-firmware && pwd && ls -l && ls -l builds/
+      - name: Run builds
+        run: |
+          cd airrohr-firmware && pwd && ls -l && platformio run && ls -l builds/
+          cd ../airrohr-update-loader && pwd && ls -l && platformio run && ls -l builds/
+
+      - name: Run List all
+        run: cd ../airrohr-firmware && pwd && ls -l && ls -l builds/
         
-      #- name: Upload Release
-      #  uses: ncipollo/release-action@v1
-      #  with:
-      #    artifacts: "../airrohr-firmware/builds/*.bin && ../airrohr-firmware/builds/*.md5"
-      #    token: ${{ secrets.GITHUB_TOKEN }}
-      #    # Instead add tags through every Release related commit
-      #    tag: SSN-NRZ-2021-134-B6 
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "builds/*.bin && builds/*.md5"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Instead add tags through every Release related commit
+          tag: SSN-NRZ-2021-134-B6 
