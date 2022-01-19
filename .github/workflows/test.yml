@@ -62,7 +62,7 @@ jobs:
           cd ../airrohr-update-loader && pwd && ls -l && platformio run && ls -l builds/
 
       - name: Run List all
-        run: pwd && ls -l && ls -l builds/
+        run: pwd && ls -l && ls -l airrohr-firmware/builds/
         
       #- name: Upload Release
       #  uses: ncipollo/release-action@v1
