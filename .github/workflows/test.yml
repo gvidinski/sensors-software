@@ -75,11 +75,19 @@ jobs:
           name: airrohr-firmware-builds
           path: airrohr-firmware-builds.tar.gz
           retention-days: 30
+      
+      - name: Store update-loader
+        uses: actions/upload-artifact@v2
+        with:
+          if-no-files-found: error
+          name: airrohr-update-loader
+          path: airrohr-update-loader/builds/latest_loader.bin
+          retention-days: 30
         
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "airrohr-firmware-builds.tar.gz"
+          artifacts: "airrohr-firmware-builds.tar.gz, airrohr-update-loader/builds/latest_loader.bin"
           token: ${{ secrets.GITHUB_TOKEN }}
           # Instead add tags through every Release related commit
           tag: SSN-NRZ-2022-134-B${{ github.run_number }}

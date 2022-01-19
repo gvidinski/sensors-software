@@ -1,14 +1,16 @@
 # SSN Airrohr Firmware CI workflow
 
-name: SSN Airrohr Firmware CI
+name: master-ssn build status
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master-ssn branch
   push:
-    branches: [ master-ssn ]
+    branches: 
+      - master-ssn
   create:
-    branches: [ master-ssn ]
+    branches: 
+      - master-ssn
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,10 +21,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    
-    # map a step output to a job output
-    outputs:
-      version_num: ${{steps.version.outputs.VERSION}}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -58,9 +56,6 @@ jobs:
         run: |
           cd airrohr-firmware && pwd && ls -l && platformio run && ls -l builds/
           cd ../airrohr-update-loader && pwd && ls -l && platformio run && ls -l builds/
-      
-      - name: Show version
-        run: echo ${{ steps.version.outputs.VERSION }}
         
       - name: Upload Release
         uses: ncipollo/release-action@v1

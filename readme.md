@@ -1,13 +1,14 @@
-firmware master branch: [![Build Status](https://travis-ci.com/opendata-stuttgart/sensors-software.svg?branch=master)](https://travis-ci.com/opendata-stuttgart/sensors-software)  
-firmware beta branch: [![Build Status](https://travis-ci.com/opendata-stuttgart/sensors-software.svg?branch=beta)](https://travis-ci.com/opendata-stuttgart/sensors-software)  
+# Sparrow Sensor Network Software
+![example workflow](https://github.com/gvidinski/sensors-software/actions/workflows/master-ssn-pull.yml/badge.svg)
+![example workflow](https://github.com/gvidinski/sensors-software/actions/workflows/test.yml/badge.svg)
 
 # Software for Sensor.Community / Luftdaten.Info Sensor
 
-## airrohr-firmware
+## airrohr-ssn-firmware
 
 The maintained main firmware for the Luftdaten.Info Sensor. 
 
-## airrohr-update-loader
+## airrohr-ssn-update-loader
 
 A transitional firmware which will look for a firmware file
 stored on SPIFFS to replace itself with for next reboot
@@ -31,4 +32,5 @@ for firmwares larger than 512k (up to ~ 740k).
 
 # Development
 
-The development is done in the beta branch.
+Development for the **Sensor.Comunity** is done in the `beta` branch.</br >
+Development for the **Sparrow Sensor** Network is done in the `beta-ssn` branch.
