@@ -67,4 +67,5 @@ jobs:
         with:
           artifacts: "../airrohr-firmware/builds/*"
           token: ${{ secrets.GITHUB_TOKEN }}
+          # Instead add tags through every Release related commit
           # tag: vSSN-NRZ-2021-134-B5 
