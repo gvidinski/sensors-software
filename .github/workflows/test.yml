@@ -76,10 +76,10 @@ jobs:
           path: airrohr-firmware-builds.tar.gz
           retention-days: 30
         
-      # - name: Upload Release
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     artifacts: "airrohr-firmware/builds/*.bin && airrohr-firmware/builds/*.md5"
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     # Instead add tags through every Release related commit
-      #     tag: SSN-NRZ-2022-134-B${{ github.run_number }}
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "airrohr-firmware-builds"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Instead add tags through every Release related commit
+          tag: SSN-NRZ-2022-134-B${{ github.run_number }}
