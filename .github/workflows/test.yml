@@ -1,16 +1,16 @@
 # SSN Airrohr Firmware CI workflow
 
-name: SSN test
+name: SSN test (test.yml)
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master-ssn branch
   push:
     branches: 
-      - gvidinski*
+      - actions*
   create:
     branches: 
-      - gvidinski*
+      - actions*
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

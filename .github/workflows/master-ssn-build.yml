@@ -57,10 +57,10 @@ jobs:
           cd airrohr-firmware && pwd && ls -l && platformio run && ls -l builds/
           cd ../airrohr-update-loader && pwd && ls -l && platformio run && ls -l builds/
         
-      - name: Upload Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "../airrohr-firmware/builds/*"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # Instead add tags through every Release related commit
-          # tag: vSSN-NRZ-2021-134-B5 
+      # - name: Upload Release
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     artifacts: "../airrohr-firmware/builds/*"
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     # Instead add tags through every Release related commit
+      #     # tag: vSSN-NRZ-2021-134-B5 
