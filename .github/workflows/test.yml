@@ -63,11 +63,23 @@ jobs:
 
       - name: Run List all
         run: pwd && ls -l airrohr-firmware/builds/
-        
-      - name: Upload Release
-        uses: ncipollo/release-action@v1
+
+      - name: Tar Results
+        run: |
+          tar czvf airrohr-firmware-builds.tar.gz -C airrohr-firmware/builds/ .
+          
+      - name: Store airrohr-firmware
+        uses: actions/upload-artifact@v2
         with:
-          artifacts: "airrohr-firmware/builds/*.bin && airrohr-firmware/builds/*.md5"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # Instead add tags through every Release related commit
-          tag: SSN-NRZ-2021-134-B6 
+          if-no-files-found: error
+          name: airrohr-firmware-builds
+          path: airrohr-firmware-builds.tar.gz
+          retention-days: 30
+        
+      # - name: Upload Release
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     artifacts: "airrohr-firmware/builds/*.bin && airrohr-firmware/builds/*.md5"
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     # Instead add tags through every Release related commit
+      #     tag: SSN-NRZ-2022-134-B${{ github.run_number }}
