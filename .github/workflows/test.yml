@@ -62,12 +62,12 @@ jobs:
           cd ../airrohr-update-loader && pwd && ls -l && platformio run && ls -l builds/
 
       - name: Run List all
-        run: cd ../airrohr-firmware && pwd && ls -l && ls -l builds/
+        run: pwd && ls -l && ls -l builds/
         
-      - name: Upload Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "builds/*.bin && builds/*.md5"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # Instead add tags through every Release related commit
-          tag: SSN-NRZ-2021-134-B6 
+      #- name: Upload Release
+      #  uses: ncipollo/release-action@v1
+      #  with:
+      #    artifacts: "builds/*.bin && builds/*.md5"
+      #    token: ${{ secrets.GITHUB_TOKEN }}
+      #    # Instead add tags through every Release related commit
+      #    tag: SSN-NRZ-2021-134-B6 
