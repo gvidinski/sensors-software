@@ -65,7 +65,7 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "/airrohr-firmware/builds/*.bin && /airrohr-firmware/builds/*.md5"
+          artifacts: "../airrohr-firmware/builds/*.bin && ../airrohr-firmware/builds/*.md5"
           token: ${{ secrets.GITHUB_TOKEN }}
           # Instead add tags through every Release related commit
-          # tag: vSSN-NRZ-2021-134-B5 
+          tag: SSN-NRZ-2021-134-B6 
