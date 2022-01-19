@@ -79,7 +79,7 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "airrohr-firmware-builds"
+          artifacts: "airrohr-firmware-builds.tar.gz"
           token: ${{ secrets.GITHUB_TOKEN }}
           # Instead add tags through every Release related commit
           tag: SSN-NRZ-2022-134-B${{ github.run_number }}
