@@ -1,6 +1,6 @@
 # SSN Airrohr Firmware CI workflow
 
-name: SSN Airrohr Firmware CI
+name: SSN Airrohr Pull
 
 # Controls when the workflow will run
 on:
