@@ -6,7 +6,8 @@ name: SSN Airrohr Pull
 on:
   # Triggers the workflow on push or pull request events but only for the master-ssn branch
   pull_request:
-    branches: [ master-ssn ]
+    branches: 
+      - master-ssn
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
