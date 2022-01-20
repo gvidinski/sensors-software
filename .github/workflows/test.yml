@@ -6,8 +6,8 @@ name: SSN test (test.yml)
 on:
   # Triggers the workflow on push or pull request events but only for the master-ssn branch
   push:
-      tags:
-      - 'TEST-*'
+      tags: 
+        - 'TEST-*'
   #   branches: 
   #     - actions*
   # create:
@@ -26,11 +26,11 @@ jobs:
       # env:
       #   GITHUB_CONTEXT: ${{ toJson(github) }}
       # run: echo "$GITHUB_CONTEXT"
-      - name: Extract branch name
-        shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
-      - name: Test
-        run: echo "${BRANCH_NAME}"
+      # - name: Extract branch name
+      #   shell: bash
+      #   run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+      # - name: Test
+      #   run: echo "${BRANCH_NAME}"
 
 # # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 # jobs:
