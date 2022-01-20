@@ -25,15 +25,12 @@ on:
         #     echo GITHUB_BASE_REF $GITHUB_BASE_REF
 
 jobs:
-  prod-check:
+  prod-check-and-release:
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/') && contains(github.ref_name, 'SSN')
     runs-on: ubuntu-latest
     steps:
       - run: echo "Creating release version $GITHUB_REF"
-      
-  build:
-    runs-on: ubuntu-latest
-    steps:
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v2
