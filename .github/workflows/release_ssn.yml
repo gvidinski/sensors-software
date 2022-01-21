@@ -80,6 +80,6 @@ jobs:
         with:
           artifacts: "airrohr-firmware-builds.tar.gz, airrohr-update-loader/builds/latest_loader.bin"
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Use tag on push event
           #tag: SSN-NRZ-2022-134-B${{ github.run_number }}
-          tag: $GITHUB_REF_NAME
+          # Use tag on push event
+          tag: ${{ github.ref_name }}
